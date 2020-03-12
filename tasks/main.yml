@@ -15,7 +15,7 @@
   set_fact: 
     custom_hosts: "{{ lookup('template', 'custom_hosts.j2') }}"
 
- name: Add Managed Block to {{ hosts_file }}
+- name: Add Managed Block to {{ hosts_file }}
   blockinfile:
     path: "{{ hosts_file }}"
     owner: root
