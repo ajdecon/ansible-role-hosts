@@ -30,7 +30,7 @@ ff02::2  ip6-allrouters
 {% for group in hosts_add_ansible_managed_hosts_groups %}
 {% for host in groups[group]|sort %}
 # {{ host }}
-{% set my_interfaces = hostvars[host]['ansible_interfaces']|select('match', '(?!^lo).*|(?!^docker).*')|default(None) -%}
+{% set my_interfaces = hostvars[host]['ansible_interfaces']|select('match', '(?!^(lo|docker|nodelocaldns)).*')|default(None) -%}
   {% if hosts_network_interface -%}
     {% set di = hosts_network_interface -%}
   {% else -%}
